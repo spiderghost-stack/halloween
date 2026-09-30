@@ -1,39 +1,11 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { getToken } from "next-auth/jwt";
+import NextAuth from "next-auth";
+import { authConfig } from "./auth.config";
 
-export async function proxy(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+const { auth } = NextAuth(authConfig);
 
-  // Protect /admin routes — must be ADMIN role
-  if (pathname.startsWith("/admin")) {
-    const token = await getToken({
-      req: request,
-      secret: process.env.AUTH_SECRET,
-    });
-
-    if (!token) {
-      return NextResponse.redirect(new URL("/login", request.url));
-    }
-    if ((token as any).role !== "ADMIN") {
-      return NextResponse.redirect(new URL("/", request.url));
-    }
-  }
-
-  // Protect authenticated-only routes
-  if (["/account", "/orders", "/checkout"].some((p) => pathname.startsWith(p))) {
-    const token = await getToken({
-      req: request,
-      secret: process.env.AUTH_SECRET,
-    });
-    if (!token) {
-      return NextResponse.redirect(
-        new URL(`/login?callbackUrl=${encodeURIComponent(pathname)}`, request.url)
-      );
-    }
-  }
-
-  return NextResponse.next();
+// Next.js 16 requires the proxy function to be a named export called "proxy"
+export async function proxy(request: any) {
+  return auth(request);
 }
 
 export const config = {
