@@ -1,0 +1,53 @@
+import type { Promotion } from "@/types";
+
+export const promotions: Promotion[] = [
+  {
+    id: "promo-1",
+    title: "HAUNTED HOUSE SALE",
+    description: "Turn your home into a haunted manor with up to 40% off all home decor.",
+    discountPercent: 40,
+    code: "HAUNTEDHOUSE",
+    endsAt: "2026-10-31T23:59:59Z",
+    image: "/images/promos/haunted-house.jpg",
+    categorySlug: "home-decor",
+  },
+  {
+    id: "promo-2",
+    title: "COSTUME NIGHT",
+    description: "All costumes discounted for one night only. Use code at checkout.",
+    discountPercent: 30,
+    code: "COSTUMENIGHT",
+    endsAt: "2026-10-28T23:59:59Z",
+    image: "/images/promos/costume-night.jpg",
+    categorySlug: "costumes",
+  },
+  {
+    id: "promo-3",
+    title: "MIDNIGHT FLASH SALE",
+    description: "One night. Darkest prices of the season. All categories included.",
+    discountPercent: 50,
+    code: "MIDNIGHT50",
+    endsAt: "2026-10-25T23:59:59Z",
+    image: "/images/promos/midnight-flash.jpg",
+  },
+  {
+    id: "promo-4",
+    title: "SPELLBOOK BUNDLE",
+    description: "Save 25% when you buy any 3 accessories together.",
+    discountPercent: 25,
+    code: "SPELLBOOK3",
+    endsAt: "2026-10-31T23:59:59Z",
+    image: "/images/promos/spellbook-bundle.jpg",
+    categorySlug: "accessories",
+  },
+  {
+    id: "promo-5",
+    title: "LITTLE MONSTERS DEAL",
+    description: "All kids items on sale — 20% off for young sorcerers.",
+    discountPercent: 20,
+    code: "LITTLEMONSTER",
+    endsAt: "2026-10-31T23:59:59Z",
+    image: "/images/promos/little-monsters.jpg",
+    categorySlug: "kids",
+  },
+];

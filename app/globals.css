@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* ── CSS Custom Properties ──────────────────────────────────────────────── */
+:root {
+  --font-cinzel: "Cinzel", serif;
+  --font-inter: "Inter", sans-serif;
+
+  --color-castle-black: #090807;
+  --color-deep-black: #14110f;
+  --color-ancient-wood: #3a2418;
+  --color-parchment-brown: #8a6a43;
+  --color-magic-gold: #c8a45d;
+  --color-bright-gold: #e3c477;
+  --color-halloween-orange: #d85a19;
+  --color-ivory: #f2e7ce;
+  --color-warm-white: #fff8ea;
+  --color-dark-red: #5e1717;
+}
+
+/* ── Base reset ─────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-deep-black);
+  color: var(--color-ivory);
+  font-family: var(--font-inter);
+  line-height: 1.6;
+  min-height: 100dvh;
+}
+
+/* ── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-magic-gold);
+  color: var(--color-castle-black);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-castle-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ancient-wood);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-parchment-brown);
+}
+
+/* ── Focus visible ──────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-magic-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── Images ─────────────────────────────────────────────────────────────── */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Typography utilities ────────────────────────────────────────────────── */
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+/* ── Line clamp ─────────────────────────────────────────────────────────── */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* ── Tabular numbers for countdowns ─────────────────────────────────────── */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
