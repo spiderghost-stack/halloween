@@ -71,7 +71,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
         <div className="flex items-center justify-between px-6 py-5 border-b border-magic-gold/20">
           <div className="flex items-center gap-2">
             <Moon size={18} className="text-magic-gold" aria-hidden="true" />
-            <span className="font-cinzel text-sm text-ivory uppercase tracking-wider">
+            <span translate="no" className="font-cinzel text-sm text-ivory uppercase tracking-wider">
               Hex & Hollow
             </span>
           </div>
@@ -156,7 +156,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
         {/* Footer */}
         <div className="px-6 py-4 border-t border-magic-gold/20">
           <p className="font-inter text-[10px] text-parchment-brown/50 uppercase tracking-widest text-center">
-            © 2026 Hex & Hollow
+            © 2026 <span translate="no">Hex & Hollow</span>
           </p>
         </div>
       </div>

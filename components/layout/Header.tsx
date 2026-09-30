@@ -109,7 +109,7 @@ export function Header() {
                 />
                 <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-halloween-orange" />
               </div>
-              <span className="font-cinzel font-bold text-ivory uppercase tracking-wider text-sm lg:text-base group-hover:text-warm-white transition-colors duration-200 whitespace-nowrap">
+              <span translate="no" className="font-cinzel font-bold text-ivory uppercase tracking-wider text-sm lg:text-base group-hover:text-warm-white transition-colors duration-200 whitespace-nowrap">
                 Hex & Hollow
               </span>
             </Link>

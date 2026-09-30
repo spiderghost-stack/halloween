@@ -1,24 +1,32 @@
-import { auth } from "@/auth";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { getToken } from "next-auth/jwt";
 
 export async function proxy(request: NextRequest) {
-  const session = await auth();
   const { pathname } = request.nextUrl;
 
   // Protect /admin routes — must be ADMIN role
   if (pathname.startsWith("/admin")) {
-    if (!session) {
+    const token = await getToken({
+      req: request,
+      secret: process.env.AUTH_SECRET,
+    });
+
+    if (!token) {
       return NextResponse.redirect(new URL("/login", request.url));
     }
-    if ((session.user as any).role !== "ADMIN") {
+    if ((token as any).role !== "ADMIN") {
       return NextResponse.redirect(new URL("/", request.url));
     }
   }
 
   // Protect authenticated-only routes
   if (["/account", "/orders", "/checkout"].some((p) => pathname.startsWith(p))) {
-    if (!session) {
+    const token = await getToken({
+      req: request,
+      secret: process.env.AUTH_SECRET,
+    });
+    if (!token) {
       return NextResponse.redirect(
         new URL(`/login?callbackUrl=${encodeURIComponent(pathname)}`, request.url)
       );

@@ -84,7 +84,7 @@ export function Footer() {
                 className="text-magic-gold"
                 aria-hidden="true"
               />
-              <span className="font-cinzel font-bold text-ivory uppercase tracking-wider text-sm">
+              <span translate="no" className="font-cinzel font-bold text-ivory uppercase tracking-wider text-sm">
                 Hex & Hollow
               </span>
             </Link>
@@ -134,7 +134,7 @@ export function Footer() {
       <div className="border-t border-magic-gold/10 py-5 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="font-inter text-[10px] text-parchment-brown/40 uppercase tracking-widest">
-            © 2026 Hex & Hollow. All rights reserved.
+            © 2026 <span translate="no">Hex & Hollow</span>. All rights reserved.
           </p>
           <div className="flex items-center gap-1">
             {[0, 1, 2].map((i) => (
